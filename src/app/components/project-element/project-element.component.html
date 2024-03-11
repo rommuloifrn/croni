@@ -1,12 +1,16 @@
-<nav role="group">
+
+  <nav role="group" id="el">
     <nav>
-      <div>{{project.title}}<span class="pico-color-slate-400"> - {{project.totalHours}}h</span></div>
-    
       <div>
-        <a href="">open</a>
-        <a href="">edit</a>
-        <a href="">delete</a>
+        <a href="project/{{project.id}}" style="text-decoration: none;">{{project.title}}</a>
+        <span class="pico-color-slate-400"> - {{project.totalHours}}h</span>
+      </div>
+    
+      <div id="buttons" hidden>
+        <a href="project/{{project.id}}">open</a>
+        <!-- <a href="">edit</a>
+        <a href="">delete</a> -->
       </div>
     </nav>
-    
+      
   </nav>

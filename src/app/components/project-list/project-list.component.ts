@@ -16,24 +16,28 @@ import { CommonModule } from '@angular/common';
 export class ProjectListComponent {
   list: Project[] = [
     {
+      "id":1,
       "title": "Ecommerce with Svelte", 
       "text":"projetinho aosd asd asdoa asdd asd asdas d", 
       "totalHours": 27
     },
     {
+      "id":2,
       "title": "Text writing site API", 
       "text":"projetinho aosd asd asdoa asdd asd asdas d", 
-      "totalHours": 27
+      "totalHours": 42
     },
     {
+      "id":3,
       "title": "Competitive programming duel system", 
       "text":"projetinho aosd asd asdoa asdd asd asdas d", 
-      "totalHours": 27
+      "totalHours": 3
     },
     {
+      "id":4,
       "title": "DIY projects frontend", 
       "text":"projetinho aosd asd asdoa asdd asd asdas d", 
-      "totalHours": 27
+      "totalHours": 8
     },
   ];
 }

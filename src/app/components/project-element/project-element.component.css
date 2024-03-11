@@ -1,0 +1,8 @@
+#el #buttons {
+    display: none;
+}
+
+#el:hover #buttons {
+    display: flex;
+}
+
