@@ -1,1 +1,13 @@
-<p>opened-project works!</p>
+<article>
+    <header>
+        Project: <b>{{project?.title}}</b> <span class="pico-color-slate-400"> - {{project?.totalHours}}h total</span>
+    </header>
+    <div>
+        <nav role="group">You don't have a entry runnning.</nav>
+        <button style="margin-right: 1em;">Start entry</button>
+        <button class="secondary">Put some notes</button>
+    </div>
+    <footer>
+        Last entry: 3 days ago | <a style="cursor: pointer;">See all</a>
+    </footer>
+</article>

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject} from '@angular/core';
+import { Project } from '../../project';
+import { ProjectService } from '../../services/project.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-opened-project',
@@ -8,5 +11,12 @@ import { Component } from '@angular/core';
   styleUrl: './opened-project.component.css'
 })
 export class OpenedProjectComponent {
+  route: ActivatedRoute = inject(ActivatedRoute);
+  project: Project | undefined;
+  projectService: ProjectService = inject(ProjectService);
 
+  constructor() {
+    const projectId = parseInt(this.route.snapshot.params['id'], 10);
+    this.project = this.projectService.getProjectById(projectId);
+  }
 }

@@ -36,5 +36,9 @@ export class ProjectService {
     return this.projectList;
   }
 
+  getProjectById(id: number): Project | undefined {
+    return this.projectList.find(project => project.id === id);
+  }
+
   constructor() { }
 }
