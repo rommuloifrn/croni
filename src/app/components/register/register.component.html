@@ -8,16 +8,16 @@
         
         <label>
             Username
-            <input type="text" name="username" placeholder="Username">
+            <input type="text" name="username" placeholder="Username" [(ngModel)]="username">
         </label>
         <label>
             Email
-            <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
+            <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" [(ngModel)]="email">
         </label>
         <label>
             Password
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="password">
         </label>
-        <input type="submit" value="Create account">
+        <button (click)="onClick()">Submit</button>
     </form>
 </article>
