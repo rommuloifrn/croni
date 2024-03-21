@@ -1,7 +1,7 @@
 <section>
   <nav>
     <ul>
-      <a href="/">
+      <a [routerLink]="['']">
         <li>
           <strong class="pico-color-cyan-450">Croni</strong>
         </li>
@@ -13,12 +13,12 @@
         <nav>
           <ul>
             <li>
-              <a class="secondary" href="/project-list">
+              <a class="secondary" [routerLink]="['/project-list']">
                 projects
               </a>
             </li>
             <li>
-              <a class="secondary" href="/profile">
+              <a class="secondary" [routerLink]="['/profile']">
                 profile
               </a>
             </li>
