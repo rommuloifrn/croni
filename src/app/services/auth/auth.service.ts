@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, Subscription, catchError } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
