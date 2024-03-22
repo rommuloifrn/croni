@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,19 @@ export class AuthService {
       "email":email, 
       "password":password, 
       "role":"ADMIN"
-    }).subscribe(
+    }
+    ).subscribe(
       (val) => {console.log(val);}
+    )
+  }
+
+  login(username: string, password:string): Subscription {
+    return this.httpClient.post("http://localhost:8080/auth/login", {
+      "username": username,
+      "password": password
+    }, {responseType: 'text'})
+    .subscribe(
+      (val) => console.log(val)
     )
   }
 
