@@ -1,6 +1,6 @@
 import { Component, inject} from '@angular/core';
 import { Project } from '../../project';
-import { ProjectService } from '../../services/project.service';
+import { ProjectService } from '../../services/project/project.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

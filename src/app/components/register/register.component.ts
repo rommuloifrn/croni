@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,24 +12,14 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  http: HttpClient = inject(HttpClient);
+  authService: AuthService = inject(AuthService);
 
   username = '';
   email = '';
   password = '';
 
   onClick(): void {
-    
-    console.log("vimasdasdas");
-    
-    
-    this.http.post<void>("http://localhost:8080/auth/register", {"username":this.username, "email":this.email, "password":this.password, "role":"ADMIN"}).subscribe(
-      (val) => {
-        console.log(val);
-      }
-    )
-    
-    
+    this.authService.register(this.username, this.email, this.password);
   }
   
 }
