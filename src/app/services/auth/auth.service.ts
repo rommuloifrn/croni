@@ -27,7 +27,10 @@ export class AuthService {
       "password": password
     }, {responseType: 'text'})
     .subscribe(
-      (val) => console.log(val)
+      (val) => {
+        localStorage.setItem("JWT", val);
+        console.log("token é:"+localStorage.getItem("JWT"));
+      }
     )
   }
 
