@@ -1,10 +1,12 @@
 <section>
   <nav>
     <ul>
-      <a [routerLink]="['']">
-        <li>
-          <strong class="pico-color-cyan-450">Croni</strong>
-        </li>
+      <a  *ngIf="isThereAToken" [routerLink]="['/project-list']">
+        <a #elseBlock [routerLink]="['']">
+          <li>
+            <strong class="pico-color-cyan-450">Croni</strong>
+          </li>
+        </a>
       </a>
     </ul>
     
