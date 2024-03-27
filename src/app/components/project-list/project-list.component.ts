@@ -16,6 +16,11 @@ import { ProjectService } from '../../services/project/project.service';
 })
 export class ProjectListComponent {
   projectService: ProjectService = inject(ProjectService);
-  list: Project[] = this.projectService.getList();
+  list: Project[] = [] //this.projectService.getList();
 
+  constructor() {
+    this.projectService.getList().then((projectList: Project[]) => {
+      this.list = projectList;
+    })
+  }
 }

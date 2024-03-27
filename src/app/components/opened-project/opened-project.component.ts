@@ -17,6 +17,8 @@ export class OpenedProjectComponent {
 
   constructor() {
     const projectId = parseInt(this.route.snapshot.params['id'], 10);
-    this.project = this.projectService.getProjectById(projectId);
+    this.projectService.getProjectById(projectId).then(project => {
+      this.project = project;
+    });
   }
 }
