@@ -13,5 +13,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './topbar.component.css'
 })
 export class TopbarComponent {
-  isThereAToken = localStorage.getItem("JWT");
+  token = localStorage.getItem("JWT");
+  
+  isTokenNull(): boolean {
+    return (this.token == null);
+  }
 }

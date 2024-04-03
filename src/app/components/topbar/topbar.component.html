@@ -1,13 +1,19 @@
 <section>
   <nav>
     <ul>
-      <a  *ngIf="isThereAToken" [routerLink]="['/project-list']">
-        <a #elseBlock [routerLink]="['']">
+      <a  *ngIf="isTokenNull(); else elseBlock" [routerLink]="['/project-list']">
+        <li>
+          <strong class="pico-color-cyan-450">Croni</strong>
+        </li>
+      </a>
+      <ng-template #elseBlock>
+        <a [routerLink]="['']">
           <li>
             <strong class="pico-color-cyan-450">Croni</strong>
           </li>
         </a>
-      </a>
+      </ng-template>
+      
     </ul>
     
     <ul>
@@ -22,6 +28,11 @@
             <li>
               <a class="secondary" [routerLink]="['/profile']">
                 profile
+              </a>
+            </li>
+            <li>
+              <a href="#" class="secondary">
+                logout
               </a>
             </li>
           </ul>
