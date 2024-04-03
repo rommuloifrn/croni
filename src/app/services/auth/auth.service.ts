@@ -21,17 +21,40 @@ export class AuthService {
     )
   }
 
-  login(username: string, password:string): Subscription {
-    return this.httpClient.post("http://localhost:8080/auth/login", {
-      "username": username,
-      "password": password
-    }, {responseType: 'text'})
-    .subscribe(
-      (val) => {
-        localStorage.setItem("JWT", val);
-        console.log("token é:"+localStorage.getItem("JWT"));
+  // login(username: string, password:string): Subscription {
+  //   return this.httpClient.post("http://localhost:8080/auth/login", {
+  //     "username": username,
+  //     "password": password
+  //   }, {responseType: 'text'})
+  //   .subscribe(
+  //     (val) => {
+  //       localStorage.setItem("JWT", val);
+  //       console.log("token é:"+localStorage.getItem("JWT"));
+  //     }
+  //   )
+  // }
+
+  async login(usernameInput: string, passwordInput:string) {
+    //const data = {"username": username,"password":password}
+    const response = await fetch(
+      "http://localhost:8080/auth/login",
+      {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({username:usernameInput, password:passwordInput}, null)
       }
-    )
+      )
+      console.log(response.body);
+      
+      const data = await response.json() ?? {};
+      localStorage.setItem("JWT", data.token);
+      console.log("token é:"+localStorage.getItem("JWT"));
+      //return await console.log(data);
+      
+    
+      
+
+    
   }
 
   constructor() { }
