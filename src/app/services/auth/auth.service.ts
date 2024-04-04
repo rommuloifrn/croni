@@ -34,7 +34,7 @@ export class AuthService {
   //   )
   // }
 
-  async login(usernameInput: string, passwordInput:string) {
+  async login(usernameInput: string, passwordInput:string): Promise<boolean> {
     //const data = {"username": username,"password":password}
     const response = await fetch(
       "http://localhost:8080/auth/login",
@@ -44,11 +44,17 @@ export class AuthService {
         body: JSON.stringify({username:usernameInput, password:passwordInput}, null)
       }
       )
-      console.log(response.body);
+      console.log("response status code é: " + response.status);
+      if (response.status == 200) {
+        const data = await response.json() ?? {};
+        localStorage.setItem("JWT", data.token);
+        console.log("token é:"+localStorage.getItem("JWT"));
+        return true;
+      } else {
+        return false;
+      }
       
-      const data = await response.json() ?? {};
-      localStorage.setItem("JWT", data.token);
-      console.log("token é:"+localStorage.getItem("JWT"));
+      
       //return await console.log(data);
       
     
