@@ -1,7 +1,7 @@
 <section>
   <nav>
     <ul>
-      <a  *ngIf="isTokenNull(); else elseBlock" [routerLink]="['/project-list']">
+      <a  *ngIf="isTokenNull; else elseBlock" [routerLink]="['/project-list']">
         <li>
           <strong class="pico-color-cyan-450">Croni</strong>
         </li>
@@ -31,7 +31,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="secondary">
+              <a class="secondary" style="cursor: pointer;" (click)="logoutRedirect()">
                 logout
               </a>
             </li>

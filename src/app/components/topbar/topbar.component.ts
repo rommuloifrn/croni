@@ -1,21 +1,32 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-topbar',
   standalone: true,
   imports: [
     RouterLink,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './topbar.component.html',
   styleUrl: './topbar.component.css'
 })
-export class TopbarComponent {
-  token = localStorage.getItem("JWT");
+export class TopbarComponent implements OnInit {
+  isTokenNull = true;
   
-  isTokenNull(): boolean {
-    return (this.token == null);
+  authService: AuthService = inject(AuthService);
+  router: Router = inject(Router);
+
+  ngOnInit() {
+    this.isTokenNull = this.authService.isTokenNull();
   }
+
+  logoutRedirect() {
+    this.authService.logout();
+    this.router.navigate(["/"]);
+  }
+
 }

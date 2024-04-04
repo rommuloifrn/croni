@@ -53,14 +53,14 @@ export class AuthService {
       } else {
         return false;
       }
-      
-      
-      //return await console.log(data);
-      
-    
-      
+  }
 
-    
+  async logout() {
+    localStorage.removeItem("JWT");
+  }
+
+  isTokenNull(): boolean {
+    return (localStorage.getItem("JWT") == null);
   }
 
   constructor() { }
